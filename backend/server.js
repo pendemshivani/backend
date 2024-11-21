@@ -3,7 +3,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import express from "express";
 import mongoose from "mongoose";
-
+import route from "./routes/UserRoute.js";
 
 const app=express();
 
@@ -19,3 +19,5 @@ mongoose.connect(URL).then(()=>{
         console.log(`Server is running on ${PORT}`)
     })
 }).catch(error=>console.log(error));
+
+app.use("/api",route);
